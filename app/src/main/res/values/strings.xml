@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">GME Agro</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="todo">GME Agro Logo</string>
+    <string name="indent_form">Indent Form</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="cash">Cash</string>
+    <string name="expected_delivery_date">Expected Delivery Date</string>
+    <string name="yyyy_mm_dd">YYYY/MM/DD</string>
+    <string name="distributor">Distributor</string>
+    <string name="party_code">Party Code</string>
+    <string name="proceed">Proceed</string>
+    <string name="due">Due</string>
+    <string name="add_items">Add Items</string>
+    <string name="item_name">Item Name</string>
+    <string name="item_code">Item Code</string>
+    <string name="quantity">Quantity</string>
+    <string name="add_item">Add Item</string>
+    <string name="place_order">Place Order</string>
+    <string name="sl">SL</string>
+    <string name="item">ITEM</string>
+    <string name="qty">QTY</string>
+    <string name="total_amount">TOTAL AMOUNT</string>
+    <string name="price">PRICE</string>
+    <string name="disc">DISC</string>
+    <string name="amount">AMOUNT</string>
+    <string name="_0">0</string>
+</resources>

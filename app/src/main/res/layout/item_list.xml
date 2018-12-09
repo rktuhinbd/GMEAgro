@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="#F8F8F8"
+        android:weightSum="10">
+
+        <TextView
+            android:id="@+id/textView_serial"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="@string/sl" />
+
+        <TextView
+            android:id="@+id/textView_item"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="4"
+            android:text="@string/item"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView_quantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="@string/qty"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.2"
+            android:text="@string/price"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView_discount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="@string/disc"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.8"
+            android:text="@string/amount"
+            android:textAlignment="viewEnd"
+            tools:ignore="RtlCompat" />
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    android:weightSum="8"
+    tools:context=".View.IndentForm">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/indent_form"
+            android:textSize="25sp"
+            android:textColor="#212121"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/textViewPaymentMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_method"
+            android:textSize="20sp"
+            android:textColor="#414141"/>
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/textViewPaymentMethod">
+
+            <RadioButton
+                android:id="@+id/radioButtonCash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/cash"
+                android:onClick="radioCheck"/>
+
+            <RadioButton
+                android:id="@+id/radioButtonDue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:text="@string/due"
+                android:layout_marginStart="80dp"
+                android:onClick="radioCheck"/>
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight=".5">
+
+        <TextView
+            android:id="@+id/textViewDeliveryDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/expected_delivery_date"
+            android:textSize="20sp"
+            android:textColor="#414141"/>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editText_DatePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:focusable="false"
+            android:editable="false"
+            android:hint="@string/yyyy_mm_dd" />
+
+        <EditText
+            android:id="@+id/editText_Distributor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/editText_DatePicker"
+            android:hint="@string/distributor"
+            android:inputType="text"
+            android:autofillHints="" />
+
+        <EditText
+            android:id="@+id/editText_Party_Code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText_Distributor"
+            android:layout_marginTop="20dp"
+            android:hint="@string/party_code"
+            android:inputType="text"
+            android:autofillHints="" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5">
+
+        <Button
+            android:id="@+id/button_Proceed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/proceed"
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:background="@drawable/green_button"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+</LinearLayout>
