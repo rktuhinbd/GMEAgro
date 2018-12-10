@@ -1,12 +1,14 @@
 package multibrandinfotech.developer.gmeagro.View;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import multibrandinfotech.developer.gmeagro.Model.DatabaseHelper;
 import multibrandinfotech.developer.gmeagro.R;
 
 public class SplashScreen extends AppCompatActivity {

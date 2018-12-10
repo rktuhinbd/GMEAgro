@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "203332030734",
+    "firebase_url": "https://gmeagro-multibrandinfotech.firebaseio.com",
+    "project_id": "gmeagro-multibrandinfotech",
+    "storage_bucket": "gmeagro-multibrandinfotech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203332030734:android:44afa86b6d43e9ca",
+        "android_client_info": {
+          "package_name": "multibrandinfotech.developer.gmeagro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203332030734-ssfv5rrshjidqvru49rvtcj8h2p5efv2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "multibrandinfotech.developer.gmeagro",
+            "certificate_hash": "d46c6b86aa09a18de8c1ff24a50288c7ca1d0a85"
+          }
+        },
+        {
+          "client_id": "203332030734-nk0aa8c2lhnje1i3bk9kqje9c6s43mod.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjfplsDfGVjKpzsMrBoVPgjxJrGAnQ-R8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203332030734-nk0aa8c2lhnje1i3bk9kqje9c6s43mod.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

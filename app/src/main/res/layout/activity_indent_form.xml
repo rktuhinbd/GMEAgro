@@ -84,43 +84,47 @@
 
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2.5"
+        android:weightSum="3"
         android:orientation="vertical">
 
         <EditText
             android:id="@+id/editText_DatePicker"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_marginTop="10dp"
             android:clickable="true"
-            android:focusable="false"
             android:editable="false"
+            android:focusable="false"
             android:hint="@string/yyyy_mm_dd" />
 
         <EditText
             android:id="@+id/editText_Distributor"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_below="@+id/editText_DatePicker"
+            android:layout_marginTop="20dp"
+            android:autofillHints=""
             android:hint="@string/distributor"
-            android:inputType="text"
-            android:autofillHints="" />
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/editText_Party_Code"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_below="@+id/editText_Distributor"
             android:layout_marginTop="20dp"
+            android:autofillHints=""
             android:hint="@string/party_code"
-            android:inputType="text"
-            android:autofillHints="" />
+            android:inputType="text" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
     <RelativeLayout
