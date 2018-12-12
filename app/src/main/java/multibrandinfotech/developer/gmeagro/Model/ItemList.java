@@ -4,11 +4,11 @@ public class ItemList {
     private int serial;
     private String item;
     private double quantity;
-    private double price;
-    private int discount;
+    private int price;
+    private String discount;
     private double amount;
 
-    public ItemList(int serial, String item, double quantity, double price, int discount, double amount) {
+    public ItemList(int serial, String item, double quantity, int price, String discount, double amount) {
         this.serial = serial;
         this.item = item;
         this.quantity = quantity;
@@ -33,7 +33,7 @@ public class ItemList {
         return price;
     }
 
-    public int getDiscount() {
+    public String getDiscount() {
         return discount;
     }
 

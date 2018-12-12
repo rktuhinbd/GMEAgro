@@ -8,6 +8,8 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,14 +24,16 @@ import java.util.ArrayList;
 
 public class AddItem extends AppCompatActivity {
 
-    private EditText editTextItemName, editTextItemCode, editTextQuantity;
+    private EditText editTextQuantity;
+    private AutoCompleteTextView editTextItemName, editTextItemCode;
     private TextView textVIewTotalAmount;
     private Button buttonAddItem, buttonPlaceOrder;
 
-    private String itemName, itemCode, quantityText;
-    private int quantity = 0, price = 1000, percent = 5;
-    private double discount = 1, amount, totalAmount = 0;
-    public int pos;
+    private String itemName, itemCode, quantityText, disc;
+    private int quantity = 0, price = 1000, percent = 5, grandTotal, Position;
+    private double discount = 1, amount, totalAmount = 0, subtractTotal;
+    private String itemNameArray[] = new String[]{"Tea", "Coffee", "Milk", "Sugar", "Biscuit", "Shingara", "Shamucha", "Muglai", "Biriyani", "Juice"};
+    private String itemCodeArray[] = new String[]{"IspahaniTea", "Nescafe", "Dano", "ZeroCal", "First Choice", "Panshi", "Beauty", "Sultan's Dine", "Singapore Juice Corner"};
 
     private RecyclerView recyclerView;
     private ItemAdapter adapter;
@@ -42,13 +46,19 @@ public class AddItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
 
-        editTextItemName = (EditText) findViewById(R.id.editText_ItemName);
-        editTextItemCode = (EditText) findViewById(R.id.editText_ItemCode);
+        editTextItemName = (AutoCompleteTextView) findViewById(R.id.editText_ItemName);
+        editTextItemCode = (AutoCompleteTextView) findViewById(R.id.editText_ItemCode);
         editTextQuantity = (EditText) findViewById(R.id.editText_Quantity);
         textVIewTotalAmount = (TextView) findViewById(R.id.textView_TotalAmount);
 
         buttonAddItem = (Button) findViewById(R.id.button_AddItem);
         buttonPlaceOrder = (Button) findViewById(R.id.button_PlaceOrder);
+
+        final ArrayAdapter<String> itemNameAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itemNameArray);
+        final ArrayAdapter<String> itemCodeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itemCodeArray);
+
+        editTextItemName.setAdapter(itemNameAdapter);
+        editTextItemCode.setAdapter(itemCodeAdapter);
 
         buttonAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +81,7 @@ public class AddItem extends AppCompatActivity {
     public void getRecyclerViewItemPosition(int position) {
         ItemList itemPosition = items.get(position);
         adapter.notifyItemChanged(position);
-        pos = position;
+        Position = position;
     }
 
     public void populateRecyclerView() {
@@ -102,14 +112,16 @@ public class AddItem extends AppCompatActivity {
             amount = (price - discount) * quantity;
             totalAmount += amount;
 
-            items.add(new ItemList(pos + 1, itemName, quantity, price, percent, amount));
-            pos++;
+            disc = percent + "%";
+
+            items.add(new ItemList(Position+1, itemName, quantity, price, disc, amount));
+            Position++;
 
             Toast.makeText(getApplicationContext(), "Item Added", Toast.LENGTH_SHORT).show();
 
             populateRecyclerView();
 
-            int grandTotal = ((int) totalAmount);
+            grandTotal = ((int) totalAmount);
 
             textVIewTotalAmount.setText(String.valueOf(grandTotal));
             editTextItemName.setText("");
@@ -119,8 +131,15 @@ public class AddItem extends AppCompatActivity {
     }
 
     public void removeItem(int position) {
+        subtractTotal = (int) items.get(position).getAmount();
+        totalAmount -= subtractTotal;
+        grandTotal = ((int) totalAmount);
+        textVIewTotalAmount.setText(String.valueOf(grandTotal));
+
         items.remove(position);
         adapter.notifyItemRemoved(position);
+
+        Toast.makeText(AddItem.this, "Item removed", Toast.LENGTH_SHORT).show();
     }
 
     public void openPlaceOrderDialog() {
@@ -136,9 +155,7 @@ public class AddItem extends AppCompatActivity {
 
         adb.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-
-                removeItem(pos);
-                Toast.makeText(AddItem.this, "Item removed", Toast.LENGTH_SHORT).show();
+                removeItem(Position);
             }
         });
 

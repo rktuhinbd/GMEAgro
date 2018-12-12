@@ -20,12 +20,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".View.LoginActivity" />
-        <activity android:name=".View.IndentForm" />
+        <activity
+            android:name=".View.IndentForm"
+            android:windowSoftInputMode="adjustUnspecified" />
         <activity
             android:name=".View.AddItem"
-            android:windowSoftInputMode="adjustPan">
-            >
-        </activity>
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

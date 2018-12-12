@@ -45,8 +45,8 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
                 while (cursor.moveToNext()) {
-                    userNameData = cursor.getString(1);
-                    passwrodData = cursor.getString(2);
+                    userNameData = cursor.getString(0);
+                    passwrodData = cursor.getString(1);
                 }
 
                 userName = editTextUserName.getText().toString();
