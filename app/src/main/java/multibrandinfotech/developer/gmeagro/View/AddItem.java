@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -33,7 +35,7 @@ public class AddItem extends AppCompatActivity {
     private int quantity = 0, price = 1000, percent = 5, grandTotal, Position;
     private double discount = 1, amount, totalAmount = 0, subtractTotal;
     private String itemNameArray[] = new String[]{"Tea", "Coffee", "Milk", "Sugar", "Biscuit", "Shingara", "Shamucha", "Muglai", "Biriyani", "Juice"};
-    private String itemCodeArray[] = new String[]{"IspahaniTea", "Nescafe", "Dano", "ZeroCal", "First Choice", "Panshi", "Beauty", "Sultan's Dine", "Singapore Juice Corner"};
+    private String itemCodeArray[] = new String[]{"Ispahani Tea", "Nescafe", "Dano", "Zero Cal", "First Choice", "Panshi", "Beauty", "Sultan's Dine", "Singapore Juice Corner"};
 
     private RecyclerView recyclerView;
     private ItemAdapter adapter;
@@ -60,6 +62,9 @@ public class AddItem extends AppCompatActivity {
         editTextItemName.setAdapter(itemNameAdapter);
         editTextItemCode.setAdapter(itemCodeAdapter);
 
+        editTextItemName.addTextChangedListener(watcher);
+        editTextItemCode.addTextChangedListener(watcher);
+
         buttonAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +83,45 @@ public class AddItem extends AppCompatActivity {
         });
     }
 
+    private TextWatcher watcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if(s.toString().equals("Tea")){
+                editTextItemCode.setText("Ispahani Tea");
+            }
+
+            else if(s.toString().equals("Coffee")){
+                editTextItemCode.setText("Nescafe");
+            }
+
+            else if(s.toString().equals("Milk")){
+                editTextItemCode.setText("Dano");
+            }
+
+            else if(s.toString().equals("Sugar")){
+                editTextItemCode.setText("Zero Cal");
+            }
+
+            else if(s.toString().equals("Biscuit")){
+                editTextItemCode.setText("First Choice");
+            }
+
+            else if(s.toString().equals("Biriyani")){
+                editTextItemCode.setText("Sultan's Dine");
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
+
     public void getRecyclerViewItemPosition(int position) {
         ItemList itemPosition = items.get(position);
         adapter.notifyItemChanged(position);
@@ -89,6 +133,7 @@ public class AddItem extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         layoutManager = new LinearLayoutManager(this);
+        adapter = null;
         adapter = new ItemAdapter(items);
 
         recyclerView.setLayoutManager(layoutManager);
@@ -111,13 +156,9 @@ public class AddItem extends AppCompatActivity {
             discount = (price * percent) / 100;
             amount = (price - discount) * quantity;
             totalAmount += amount;
-
             disc = percent + "%";
 
-            items.add(new ItemList(Position+1, itemName, quantity, price, disc, amount));
-            Position++;
-
-            Toast.makeText(getApplicationContext(), "Item Added", Toast.LENGTH_SHORT).show();
+            items.add(new ItemList(itemName, quantity, price, disc, amount));
 
             populateRecyclerView();
 
@@ -138,6 +179,8 @@ public class AddItem extends AppCompatActivity {
 
         items.remove(position);
         adapter.notifyItemRemoved(position);
+
+        populateRecyclerView();
 
         Toast.makeText(AddItem.this, "Item removed", Toast.LENGTH_SHORT).show();
     }

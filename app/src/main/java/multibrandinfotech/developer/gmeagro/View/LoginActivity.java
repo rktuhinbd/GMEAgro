@@ -34,6 +34,9 @@ public class LoginActivity extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
         final SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
 
+//        editTextUserName.addTextChangedListener(watcher);
+//        editTextPassword.addTextChangedListener(watcher);
+
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,4 +66,24 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+//    private TextWatcher watcher = new TextWatcher() {
+//        @Override
+//        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//        }
+//
+//        @Override
+//        public void onTextChanged(CharSequence s, int start, int before, int count) {
+//            String uN = editTextUserName.getText().toString().trim();
+//            String uP = editTextPassword.getText().toString().trim();
+//
+//            buttonLogin.setEnabled(!uN.isEmpty() && !uP.isEmpty());
+//        }
+//
+//        @Override
+//        public void afterTextChanged(Editable s) {
+//
+//        }
+//    };
 }

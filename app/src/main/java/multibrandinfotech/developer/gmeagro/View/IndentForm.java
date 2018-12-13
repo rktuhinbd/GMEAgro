@@ -2,10 +2,14 @@ package multibrandinfotech.developer.gmeagro.View;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
@@ -33,16 +37,14 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
     private Button buttonProceed;
     private RadioButton radioButton;
     private String paymentType, orderDate, deliveryDate, distributor, partycode;
-    private static final String[] distributorArray = new String[]{"Dhaka", "Chittagong", "Khulna", "Sylhet", "Barishal", "Comilla", "Noakhali", "Jessore", "Rajshahi", "Mymensingh", "Rangpur"};
-    private static final String[] partyCodeArray = new String[]{"Gulshan", "Banani", "Baridhara", "Mohakhali", "Badda", "Mirpur", "Mohammadpur", "Rampura", "Khilgaon", "Tejgaon", "Farmgate"};
+    private static final String[] distributorArray = new String[]{"A K Khan & Company", "Aarong", "Adamjee Jute Mills", "Advanced Chemical Industries", "Agamee Prakashani", "Akij", "Ananda Group", "Bangladesh Machine Tools Factory", "Bangladesh Petroleum Corporation", "Bashundhara Group", "Beximco", "Square"};
+    private static final String[] partyCodeArray = new String[]{"Conglomerates", "Consumer goods", "Consumer services", "Basic materials", "Industrials", "Oil & gas", "Health care", "Medicine"};
     private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_indent_form);
-
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         radioGroup = (RadioGroup) findViewById(R.id.radio_group);
         editTextDatePicker = (EditText) findViewById(R.id.editText_DatePicker);
@@ -67,30 +69,19 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
             }
         });
 
-//        editTextDistributor.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                for (int i = 0; i < distributorArray.length; i++) {
-//                    if(editTextDistributor.getText().equals("Bangladesh")){
-//                        editTextPartyCode.setText(partyCodeArray[i]);
-//                        Toast.makeText(getApplicationContext(), "Working", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            }
+//        Cursor cursor = databaseHelper.fetchIndentData();
 //
-//        });
-//
-//        editTextPartyCode.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                for (int i = 0; i < partyCodeArray.length; i++) {
-//                    if(editTextPartyCode.getText().equals("Dhaka")){
-//                        editTextDistributor.setText("Bangladesh");
-//                    }
-//                }
-//            }
-//
-//        });
+//        if (cursor.getCount() == 0) {
+//            Toast.makeText(getApplication(), "Database is empty", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        while (cursor.moveToNext()) {
+//            distributor = cursor.getString(3);
+//            partycode = cursor.getString(4);
+//        }
+
+        editTextDistributor.addTextChangedListener(watcher);
+        editTextPartyCode.addTextChangedListener(watcher);
 
         buttonProceed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +102,45 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
             }
         });
     }
+
+    private TextWatcher watcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if(s.toString().equals("A K Khan & Company")){
+                editTextPartyCode.setText("Conglomerates");
+            }
+
+            else if(s.toString().equals("Aarong")){
+                editTextPartyCode.setText("Consumer goods");
+            }
+
+            else if(s.toString().equals("Advanced Chemical Industries")){
+                editTextPartyCode.setText("Basic materials");
+            }
+
+            else if(s.toString().equals("Akij")){
+                editTextPartyCode.setText("Consumer goods");
+            }
+
+            else if(s.toString().equals("Bangladesh Petroleum Corporation")){
+                editTextPartyCode.setText("Oil & gas");
+            }
+
+            else if(s.toString().equals("Bashundhara Group")){
+                editTextPartyCode.setText("Consumer goods");
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
 
     public void radioCheck(View view) {
         int radioId = radioGroup.getCheckedRadioButtonId();

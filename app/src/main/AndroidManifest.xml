@@ -22,7 +22,7 @@
         <activity android:name=".View.LoginActivity" />
         <activity
             android:name=".View.IndentForm"
-            android:windowSoftInputMode="adjustUnspecified" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".View.AddItem"
             android:windowSoftInputMode="adjustPan" />

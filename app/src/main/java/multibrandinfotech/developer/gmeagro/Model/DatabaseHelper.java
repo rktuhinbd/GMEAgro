@@ -41,16 +41,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + PAYMENT_TYPE + " VARCHAR(10) NOT NULL, "
             + ORDER_DATE + " DATE, "
             + DELIVERY_DATE + " DATE NOT NULL, "
-            + DISTRIBUTOR +" VARCHAR(100) NOT NULL, "
-            + PARTY_CODE +" VARCHAR(100));";
+            + DISTRIBUTOR + " VARCHAR(100) NOT NULL, "
+            + PARTY_CODE + " VARCHAR(100));";
 
     private static final String CREATE_ADD_ITEM_TABLE = "CREATE TABLE " + ADD_ITEM_TABLE_NAME + "("
             + ITEM_NAME + " VARCHAR(100) NOT NULL, "
             + ITEM_CODE + " VARCHAR(100) NOT NULL, "
             + QUANTITY + " INTEGER NOT NULL, "
-            + UNIT_PRICE +" INTEGER NOT NULL, "
-            + DISCOUNT +" INTEGER), "
-            + TOTAL_PRICE +" DOUBLE);";
+            + UNIT_PRICE + " INTEGER NOT NULL, "
+            + DISCOUNT + " INTEGER), "
+            + TOTAL_PRICE + " DOUBLE);";
 
     private Context context;
 
@@ -64,18 +64,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         try {
             db.execSQL(CREATE_LOGIN_TABLE);
-            Toast.makeText(context, "Login Table Created and Login data inserted", Toast.LENGTH_LONG).show();
             db.execSQL(CREATE_INDENT_TABLE);
-            Toast.makeText(context, "Indent Table Created", Toast.LENGTH_LONG).show();
-            //db.execSQL(CREATE_ADD_ITEM_TABLE);
-            Toast.makeText(context, "Login Table Created and Login data inserted", Toast.LENGTH_LONG).show();
-            db.execSQL("INSERT INTO " + LOGIN_TABLE_NAME + "("+ USER_NAME +", " + PASSWORD + ") VALUES('superadmin', 'superadmin');");
-
+            db.execSQL("INSERT INTO " + LOGIN_TABLE_NAME + "(" + USER_NAME + ", " + PASSWORD + ") VALUES('superadmin', 'superadmin');");
+//            Toast.makeText(context, "Login Table Created and Login data inserted", Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, "Indent Table Created", Toast.LENGTH_LONG).show();
+//            db.execSQL(CREATE_ADD_ITEM_TABLE);
+//            Toast.makeText(context, "Login Table Created and Login data inserted", Toast.LENGTH_LONG).show();
 //            Log.e("TAG1", "LOGIN Table data inserted");
 //            Log.e("TAG2", "INDENT Table Created");
-            //Log.e("TAG3", "ADD_ITEM Table Created");
-        }
-        catch (Exception e){
+//            Log.e("TAG3", "ADD_ITEM Table Created");
+        } catch (Exception e) {
             Toast.makeText(context, "Exception: " + e, Toast.LENGTH_LONG).show();
         }
     }
@@ -86,13 +84,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public Cursor fetchLoginData(){
+    public Cursor fetchLoginData() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("Select * from " + LOGIN_TABLE_NAME, null);
         return cursor;
     }
 
-    public long insertIndentData(String paymentType, String orderDate, String deliveryDate, String distributor, String partyCode){
+    public Cursor fetchIndentData() {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("Select * from " + ORDER_TABLE_NAME, null);
+        return cursor;
+    }
+
+
+    public Cursor fetchAddItemData() {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("Select * from " + ADD_ITEM_TABLE_NAME, null);
+        return cursor;
+    }
+
+    public long insertIndentData(String paymentType, String orderDate, String deliveryDate, String distributor, String partyCode) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(PAYMENT_TYPE, paymentType);
@@ -102,11 +113,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(PARTY_CODE, partyCode);
 
         long input = sqLiteDatabase.insert(ORDER_TABLE_NAME, null, contentValues);
-        Toast.makeText(context, "Indent data inserted", Toast.LENGTH_LONG).show();
+//        Toast.makeText(context, "Indent data inserted", Toast.LENGTH_LONG).show();
         return input;
     }
 
-    public long insertAddItemData(String itemName, String itemCode, int unitPrice, int discount, double totalPrice, Array indentData){
+    public long insertAddItemData(String itemName, String itemCode, int unitPrice, int discount, double totalPrice, Array indentData) {
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -116,12 +127,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(DISCOUNT, discount);
         contentValues.put(TOTAL_PRICE, totalPrice);
 
-        for(int i = 0; i <= 5; i++){
-
-        }
-
         long input = sqLiteDatabase.insert(ADD_ITEM_TABLE_NAME, null, contentValues);
-        Toast.makeText(context, "add item data inserted", Toast.LENGTH_LONG).show();
+//        Toast.makeText(context, "add item data inserted", Toast.LENGTH_LONG).show();
         return input;
     }
 }

@@ -74,7 +74,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public void onBindViewHolder(@NonNull ItemViewHolder itemViewHolder, int i) {
         ItemList currentItem = itemLists.get(i);
 
-        itemViewHolder.textViewSerial.setText(currentItem.getSerial() + "");
+        itemViewHolder.textViewSerial.setText(i + 1 + "");
         itemViewHolder.textViewItem.setText(currentItem.getItem() + "");
         itemViewHolder.textViewQuantity.setText((int) currentItem.getQuantity() + "");
         itemViewHolder.textViewPrice.setText((int) currentItem.getPrice() + "");
