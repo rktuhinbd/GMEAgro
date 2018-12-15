@@ -110,6 +110,7 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
 
                         databaseHelper.insertIndentData(paymentType, orderDate, deliveryDate, distributor, partycode);
                         Intent i = new Intent(IndentForm.this, AddItem.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(i);
                     }
                 }
@@ -177,5 +178,9 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
         String dDate = new SimpleDateFormat("dd-MM-yyyy").format(calendar.getTime());
 
         editTextDatePicker.setText(dDate);
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }
