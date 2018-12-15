@@ -20,11 +20,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //private static final String ID = "ID";
     private static final String USER_NAME = "UserName";
     private static final String PASSWORD = "Password";
+
     private static final String PAYMENT_TYPE = "PaymentMethod";
     private static final String ORDER_DATE = "OrderDate";
     private static final String DELIVERY_DATE = "DeliveryDate";
     private static final String DISTRIBUTOR = "Distributor";
     private static final String PARTY_CODE = "PartyCode";
+
     private static final String ITEM_NAME = "ItemName";
     private static final String ITEM_CODE = "ItemCode";
     private static final String QUANTITY = "Quantity";
@@ -41,15 +43,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + PAYMENT_TYPE + " VARCHAR(10) NOT NULL, "
             + ORDER_DATE + " DATE, "
             + DELIVERY_DATE + " DATE NOT NULL, "
-            + DISTRIBUTOR + " VARCHAR(100) NOT NULL, "
-            + PARTY_CODE + " VARCHAR(100));";
+            + DISTRIBUTOR + " VARCHAR(100) NOT NULL UNIQUE, "
+            + PARTY_CODE + " VARCHAR(100) NOT NULL UNIQUE);";
 
-    private static final String CREATE_ADD_ITEM_TABLE = "CREATE TABLE " + ADD_ITEM_TABLE_NAME + "("
+    private static final String CREATE_ADD_ITEM_TABLE = "CREATE TABLE " + ADD_ITEM_TABLE_NAME + "( "
             + ITEM_NAME + " VARCHAR(100) NOT NULL, "
             + ITEM_CODE + " VARCHAR(100) NOT NULL, "
             + QUANTITY + " INTEGER NOT NULL, "
             + UNIT_PRICE + " INTEGER NOT NULL, "
-            + DISCOUNT + " INTEGER), "
+            + DISCOUNT + " VARCHAR(10), "
             + TOTAL_PRICE + " DOUBLE);";
 
     private Context context;
@@ -65,10 +67,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         try {
             db.execSQL(CREATE_LOGIN_TABLE);
             db.execSQL(CREATE_INDENT_TABLE);
+            db.execSQL(CREATE_ADD_ITEM_TABLE);
             db.execSQL("INSERT INTO " + LOGIN_TABLE_NAME + "(" + USER_NAME + ", " + PASSWORD + ") VALUES('superadmin', 'superadmin');");
 //            Toast.makeText(context, "Login Table Created and Login data inserted", Toast.LENGTH_LONG).show();
 //            Toast.makeText(context, "Indent Table Created", Toast.LENGTH_LONG).show();
-//            db.execSQL(CREATE_ADD_ITEM_TABLE);
 //            Toast.makeText(context, "Login Table Created and Login data inserted", Toast.LENGTH_LONG).show();
 //            Log.e("TAG1", "LOGIN Table data inserted");
 //            Log.e("TAG2", "INDENT Table Created");
@@ -117,12 +119,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return input;
     }
 
-    public long insertAddItemData(String itemName, String itemCode, int unitPrice, int discount, double totalPrice, Array indentData) {
+    public long insertAddItemData(String itemName, String itemCode, int unitPrice, int quantity, String discount, double totalPrice) {
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(ITEM_NAME, itemName);
         contentValues.put(ITEM_CODE, itemCode);
+        contentValues.put(QUANTITY, quantity);
         contentValues.put(UNIT_PRICE, unitPrice);
         contentValues.put(DISCOUNT, discount);
         contentValues.put(TOTAL_PRICE, totalPrice);

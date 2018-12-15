@@ -2,6 +2,7 @@ package multibrandinfotech.developer.gmeagro.View;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import multibrandinfotech.developer.gmeagro.Model.DatabaseHelper;
 import multibrandinfotech.developer.gmeagro.Model.ItemList;
 import multibrandinfotech.developer.gmeagro.R;
 import multibrandinfotech.developer.gmeagro.ViewModel.ItemAdapter;
@@ -41,6 +43,8 @@ public class AddItem extends AppCompatActivity {
     private ItemAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    private static DatabaseHelper databaseHelper;
+
     ArrayList<ItemList> items = new ArrayList<>();
 
     @Override
@@ -55,6 +59,9 @@ public class AddItem extends AppCompatActivity {
 
         buttonAddItem = (Button) findViewById(R.id.button_AddItem);
         buttonPlaceOrder = (Button) findViewById(R.id.button_PlaceOrder);
+
+        databaseHelper = new DatabaseHelper(this);
+        final SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
 
         final ArrayAdapter<String> itemNameAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itemNameArray);
         final ArrayAdapter<String> itemCodeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itemCodeArray);
@@ -91,28 +98,24 @@ public class AddItem extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if(s.toString().equals("Tea")){
+            if (s.toString().equals("Tea")) {
                 editTextItemCode.setText("Ispahani Tea");
-            }
-
-            else if(s.toString().equals("Coffee")){
+            } else if (s.toString().equals("Coffee")) {
                 editTextItemCode.setText("Nescafe");
-            }
-
-            else if(s.toString().equals("Milk")){
+            } else if (s.toString().equals("Milk")) {
                 editTextItemCode.setText("Dano");
-            }
-
-            else if(s.toString().equals("Sugar")){
+            } else if (s.toString().equals("Sugar")) {
                 editTextItemCode.setText("Zero Cal");
-            }
-
-            else if(s.toString().equals("Biscuit")){
+            } else if (s.toString().equals("Biscuit")) {
                 editTextItemCode.setText("First Choice");
-            }
-
-            else if(s.toString().equals("Biriyani")){
+            } else if (s.toString().equals("Biriyani")) {
                 editTextItemCode.setText("Sultan's Dine");
+            } else if (s.toString().equals("Shingara")) {
+                editTextItemCode.setText("Panshi");
+            } else if (s.toString().equals("Shamucha")) {
+                editTextItemCode.setText("Panshi");
+            } else if (s.toString().equals("Muglai")) {
+                editTextItemCode.setText("Beauty");
             }
         }
 
@@ -159,6 +162,7 @@ public class AddItem extends AppCompatActivity {
             disc = percent + "%";
 
             items.add(new ItemList(itemName, quantity, price, disc, amount));
+            databaseHelper.insertAddItemData(itemName, itemCode, quantity ,price, disc, amount);
 
             populateRecyclerView();
 

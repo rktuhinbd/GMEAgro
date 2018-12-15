@@ -9,9 +9,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -37,9 +35,9 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
     private Button buttonProceed;
     private RadioButton radioButton;
     private String paymentType, orderDate, deliveryDate, distributor, partycode;
-    private static final String[] distributorArray = new String[]{"A K Khan & Company", "Aarong", "Adamjee Jute Mills", "Advanced Chemical Industries", "Agamee Prakashani", "Akij", "Ananda Group", "Bangladesh Machine Tools Factory", "Bangladesh Petroleum Corporation", "Bashundhara Group", "Beximco", "Square"};
-    private static final String[] partyCodeArray = new String[]{"Conglomerates", "Consumer goods", "Consumer services", "Basic materials", "Industrials", "Oil & gas", "Health care", "Medicine"};
-    private DatabaseHelper databaseHelper;
+    private static final String[] distributorArray = new String[]{"A K Khan & Company", "Aarong", "Adamjee Jute Mills", "Advanced Chemical Industries", "Agamee Prakashani", "Akij", "A J Group", "Bangladesh Machine Tools Factory", "Bangladesh Petroleum Corporation", "Bashundhara Group", "Beximco Pharma", "Square Pharma"};
+    private static final String[] partyCodeArray = new String[]{"Conglomerates", "Consumer goods", "Consumer services", "Basic materials", "Industrials", "Oil & gas", "Health care", "Medicine", "Garments"};
+    private static DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +50,8 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
         editTextPartyCode = (AutoCompleteTextView) findViewById(R.id.editText_Party_Code);
         buttonProceed = (Button) findViewById(R.id.button_Proceed);
 
-        final ArrayAdapter<String> countryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, distributorArray);
-        final ArrayAdapter<String> cityAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, partyCodeArray);
-
-        editTextDistributor.setAdapter(countryAdapter);
-        editTextPartyCode.setAdapter(cityAdapter);
+        editTextDistributor.addTextChangedListener(watcher);
+        editTextPartyCode.addTextChangedListener(watcher);
 
         databaseHelper = new DatabaseHelper(this);
         final SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
@@ -70,7 +65,11 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
         });
 
 //        Cursor cursor = databaseHelper.fetchIndentData();
-//
+//        final String[] distributorValues = new String[cursor.getCount()];
+//        final String[] partyCodeValues = new String[cursor.getCount()];
+
+        //Fetch Database Values
+//        int i = 0;
 //        if (cursor.getCount() == 0) {
 //            Toast.makeText(getApplication(), "Database is empty", Toast.LENGTH_SHORT).show();
 //            return;
@@ -78,26 +77,41 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
 //        while (cursor.moveToNext()) {
 //            distributor = cursor.getString(3);
 //            partycode = cursor.getString(4);
+//
+//            distributorValues[i] = distributor;
+//            partyCodeValues[i] = partycode;
+//            i++;
 //        }
+        // <<<====O====>>> //
 
-        editTextDistributor.addTextChangedListener(watcher);
-        editTextPartyCode.addTextChangedListener(watcher);
+        //Setting Autocomplete TextField Array
+        final ArrayAdapter<String> countryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, distributorArray);
+        final ArrayAdapter<String> cityAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, partyCodeArray);
+
+        editTextDistributor.setAdapter(countryAdapter);
+        editTextPartyCode.setAdapter(cityAdapter);
+        // <<<====O====>>> //
 
         buttonProceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                paymentType = String.valueOf(radioButton.getText());
-                deliveryDate = editTextDatePicker.getText().toString();
-                distributor = editTextDistributor.getText().toString();
-                partycode = editTextPartyCode.getText().toString();
-
-                if (distributor.equals("") || partycode.equals("") || orderDate.equals("") || deliveryDate.equals("") || distributor.equals("") || partycode.equals("")) {
+                if(radioGroup.getCheckedRadioButtonId() == -1){
                     Toast.makeText(getApplicationContext(), "Please fill-up all details", Toast.LENGTH_LONG).show();
-                } else {
+                }
+                else{
+                    paymentType = (String) radioButton.getText();
+                    deliveryDate = editTextDatePicker.getText().toString();
+                    distributor = editTextDistributor.getText().toString();
+                    partycode = editTextPartyCode.getText().toString();
 
-                    databaseHelper.insertIndentData(paymentType, orderDate, deliveryDate, distributor, partycode);
-                    Intent i = new Intent(IndentForm.this, AddItem.class);
-                    startActivity(i);
+                    if (paymentType.equals(null) || deliveryDate.equals("") || distributor.equals("") || partycode.equals("")) {
+                        Toast.makeText(getApplicationContext(), "Please fill-up all details", Toast.LENGTH_LONG).show();
+                    } else {
+
+                        databaseHelper.insertIndentData(paymentType, orderDate, deliveryDate, distributor, partycode);
+                        Intent i = new Intent(IndentForm.this, AddItem.class);
+                        startActivity(i);
+                    }
                 }
             }
         });
@@ -111,28 +125,30 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if(s.toString().equals("A K Khan & Company")){
+            if (s.toString().equals("A K Khan & Company")) {
                 editTextPartyCode.setText("Conglomerates");
-            }
-
-            else if(s.toString().equals("Aarong")){
+            } else if (s.toString().equals("Aarong")) {
                 editTextPartyCode.setText("Consumer goods");
-            }
-
-            else if(s.toString().equals("Advanced Chemical Industries")){
+            } else if (s.toString().equals("Advanced Chemical Industries")) {
                 editTextPartyCode.setText("Basic materials");
-            }
-
-            else if(s.toString().equals("Akij")){
+            } else if (s.toString().equals("Akij")) {
                 editTextPartyCode.setText("Consumer goods");
-            }
-
-            else if(s.toString().equals("Bangladesh Petroleum Corporation")){
+            } else if (s.toString().equals("Bangladesh Petroleum Corporation")) {
                 editTextPartyCode.setText("Oil & gas");
-            }
-
-            else if(s.toString().equals("Bashundhara Group")){
+            } else if (s.toString().equals("Bangladesh Machine Tools Factory")) {
+                editTextPartyCode.setText("Industrials");
+            } else if (s.toString().equals("Bashundhara Group")) {
                 editTextPartyCode.setText("Consumer goods");
+            } else if (s.toString().equals("Adamjee Jute Mills")) {
+                editTextPartyCode.setText("Basic materials");
+            } else if (s.toString().equals("Agamee Prakashani")) {
+                editTextPartyCode.setText("Consumer services");
+            } else if (s.toString().equals("A J Group")) {
+                editTextPartyCode.setText("Garments");
+            } else if (s.toString().equals("Beximco")) {
+                editTextPartyCode.setText("Health care");
+            } else if (s.toString().equals("Square")) {
+                editTextPartyCode.setText("Health care");
             }
         }
 
