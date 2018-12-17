@@ -15,6 +15,8 @@ import multibrandinfotech.developer.gmeagro.R;
 
 public class Login extends AppCompatActivity {
 
+    private long backPressTime;
+    private Toast backToast;
     private EditText editTextUserName, editTextPassword;
     private Button buttonLogin;
     private String userName, Password, userNameData, passwrodData;
@@ -65,6 +67,21 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (backPressTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel();
+            moveTaskToBack(true);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
+        } else {
+            backToast = Toast.makeText(getApplicationContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+        backPressTime = System.currentTimeMillis();
     }
 
 //    private TextWatcher watcher = new TextWatcher() {

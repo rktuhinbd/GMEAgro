@@ -14,13 +14,15 @@ public class Home extends AppCompatActivity {
 
     private long backPressTime;
     private Toast backToast;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar)findViewById(R.id.toolbar);
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
+
     @Override
     public boolean onCreatePanelMenu(int featureId, Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -56,13 +58,12 @@ public class Home extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if (backPressTime + 2000 > System.currentTimeMillis()){
+        if (backPressTime + 2000 > System.currentTimeMillis()) {
             backToast.cancel();
             moveTaskToBack(true);
             android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(1);
-        }
-        else {
+        } else {
             backToast = Toast.makeText(getApplicationContext(), "Press back again to exit", Toast.LENGTH_SHORT);
             backToast.show();
         }

@@ -44,6 +44,10 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_indent_form);
 
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Sell Item Form");
+
         radioGroup = (RadioGroup) findViewById(R.id.radio_group);
         editTextDatePicker = (EditText) findViewById(R.id.editText_DatePicker);
         editTextDistributor = (AutoCompleteTextView) findViewById(R.id.editText_Distributor);
@@ -95,10 +99,9 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
         buttonProceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(radioGroup.getCheckedRadioButtonId() == -1){
+                if (radioGroup.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(getApplicationContext(), "Please fill-up all details", Toast.LENGTH_LONG).show();
-                }
-                else{
+                } else {
                     paymentType = (String) radioButton.getText();
                     deliveryDate = editTextDatePicker.getText().toString();
                     distributor = editTextDistributor.getText().toString();
