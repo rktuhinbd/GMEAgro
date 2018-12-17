@@ -8,7 +8,7 @@
     android:weightSum="8"
     android:layout_marginLeft="40dp"
     android:layout_marginRight="40dp"
-    tools:context=".View.LoginActivity">
+    tools:context=".View.Login">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,8 +18,8 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:background="@drawable/logo_gme"
             android:layout_centerInParent="true"
             android:contentDescription="@string/todo" />

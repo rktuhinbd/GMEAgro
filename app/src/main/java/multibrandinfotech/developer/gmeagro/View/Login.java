@@ -13,7 +13,7 @@ import android.widget.Toast;
 import multibrandinfotech.developer.gmeagro.Model.DatabaseHelper;
 import multibrandinfotech.developer.gmeagro.R;
 
-public class LoginActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     private EditText editTextUserName, editTextPassword;
     private Button buttonLogin;
@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                 Password = editTextPassword.getText().toString();
 
                 if (userName.equals(userNameData) && Password.equals(passwrodData)) {
-                    Intent i = new Intent(LoginActivity.this, IndentForm.class);
+                    Intent i = new Intent(Login.this, Home.class);
                     startActivity(i);
                 } else if (userName.equals("") || Password.equals("")) {
                     Toast.makeText(getApplicationContext(), "Username or Password can not be blank", Toast.LENGTH_SHORT).show();

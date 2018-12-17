@@ -64,9 +64,9 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
             }
         });
 
-//        Cursor cursor = databaseHelper.fetchIndentData();
-//        final String[] distributorValues = new String[cursor.getCount()];
-//        final String[] partyCodeValues = new String[cursor.getCount()];
+        Cursor cursor = databaseHelper.fetchIndentData();
+        final String[] distributorValues = new String[cursor.getCount()];
+        final String[] partyCodeValues = new String[cursor.getCount()];
 
         //Fetch Database Values
 //        int i = 0;
@@ -110,7 +110,7 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
 
                         databaseHelper.insertIndentData(paymentType, orderDate, deliveryDate, distributor, partycode);
                         Intent i = new Intent(IndentForm.this, AddItem.class);
-                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
                     }
                 }
@@ -182,5 +182,8 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
 
     @Override
     public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), Home.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

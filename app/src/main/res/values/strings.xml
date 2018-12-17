@@ -4,7 +4,7 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="todo">GME Agro Logo</string>
-    <string name="indent_form">Indent Form</string>
+    <string name="indent_form">Sell Item Form</string>
     <string name="payment_method">Payment Method</string>
     <string name="cash">Cash</string>
     <string name="expected_delivery_date">Expected Delivery Date</string>
@@ -27,4 +27,7 @@
     <string name="disc">DISC</string>
     <string name="amount">AMOUNT</string>
     <string name="_0">0</string>
+    <string name="sell_items">Sell Items</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="about">About</string>
 </resources>
