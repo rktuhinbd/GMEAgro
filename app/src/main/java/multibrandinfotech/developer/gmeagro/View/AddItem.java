@@ -38,8 +38,6 @@ public class AddItem extends AppCompatActivity {
     private String itemName, itemCode, quantityText, disc;
     private int quantity = 0, price = 1000, percent = 5, grandTotal, Position;
     private double discount = 1, amount, totalAmount = 0, subtractTotal;
-    private String itemNameArray[] = new String[]{"Tea", "Coffee", "Milk", "Sugar", "Biscuit", "Shingara", "Shamucha", "Muglai", "Biriyani", "Juice"};
-    private String itemCodeArray[] = new String[]{"Ispahani Tea", "Nescafe", "Dano", "Zero Cal", "First Choice", "Panshi", "Beauty", "Sultan's Dine", "Singapore Juice Corner"};
 
     private RecyclerView recyclerView;
     private ItemAdapter adapter;
