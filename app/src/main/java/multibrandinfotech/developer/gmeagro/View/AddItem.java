@@ -25,6 +25,8 @@ import multibrandinfotech.developer.gmeagro.ViewModel.ItemAdapter;
 import multibrandinfotech.developer.gmeagro.ViewModel.PlaceOrderDialog;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class AddItem extends AppCompatActivity {
 
@@ -63,8 +65,10 @@ public class AddItem extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
         final SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
 
-        final ArrayAdapter<String> itemNameAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itemNameArray);
-        final ArrayAdapter<String> itemCodeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itemCodeArray);
+        List<String> Products = Arrays.asList(getResources().getStringArray(R.array.products));
+
+        final ArrayAdapter<String> itemNameAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Products);
+        final ArrayAdapter<String> itemCodeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Products);
 
         editTextItemName.setAdapter(itemNameAdapter);
         editTextItemCode.setAdapter(itemCodeAdapter);
