@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import multibrandinfotech.developer.gmeagro.Model.DatabaseHelper;
@@ -17,7 +17,7 @@ public class Login extends AppCompatActivity {
 
     private long backPressTime;
     private Toast backToast;
-    private EditText editTextUserName, editTextPassword;
+    private TextInputLayout editTextUserName, editTextPassword;
     private Button buttonLogin;
     private String userName, Password, userNameData, passwrodData;
 
@@ -28,8 +28,8 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        editTextUserName = (EditText) findViewById(R.id.editText_UserName);
-        editTextPassword = (EditText) findViewById(R.id.editText_Password);
+        editTextUserName = findViewById(R.id.editText_UserName);
+        editTextPassword = findViewById(R.id.editText_Password);
 
         buttonLogin = (Button) findViewById(R.id.button_Login);
 
@@ -54,19 +54,43 @@ public class Login extends AppCompatActivity {
                     passwrodData = cursor.getString(1);
                 }
 
-                userName = editTextUserName.getText().toString();
-                Password = editTextPassword.getText().toString();
+                validateUserName();
+                validatePassword();
 
-                if (userName.equals(userNameData) && Password.equals(passwrodData)) {
+                if(validateUserName() == true && validatePassword() == true){
                     Intent i = new Intent(Login.this, Home.class);
                     startActivity(i);
-                } else if (userName.equals("") || Password.equals("")) {
-                    Toast.makeText(getApplicationContext(), "Username or Password can not be blank", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Wrong Username or Password", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    private boolean validateUserName() {
+        userName = editTextUserName.getEditText().getText().toString();
+        if (userName.isEmpty()) {
+            editTextUserName.setError("User Name must be entered");
+            return false;
+        } else if (!userName.equals(userNameData)) {
+            editTextUserName.setError("Wrong User Name");
+            return false;
+        } else {
+            editTextUserName.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validatePassword() {
+        Password = editTextPassword.getEditText().getText().toString();
+        if (Password.isEmpty()) {
+            editTextPassword.setError("Password must be entered");
+            return false;
+        } else if (!Password.equals(passwrodData)) {
+            editTextPassword.setError("Wrong Password");
+            return false;
+        } else {
+            editTextUserName.setError(null);
+            return true;
+        }
     }
 
     @Override

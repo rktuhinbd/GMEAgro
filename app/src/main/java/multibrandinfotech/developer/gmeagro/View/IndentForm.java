@@ -46,7 +46,7 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
 
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Sell Item Form");
+        getSupportActionBar().setTitle("Sale Order Form");
 
         radioGroup = (RadioGroup) findViewById(R.id.radio_group);
         editTextDatePicker = (EditText) findViewById(R.id.editText_DatePicker);

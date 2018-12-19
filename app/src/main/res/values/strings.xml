@@ -27,15 +27,15 @@
     <string name="disc">DISC</string>
     <string name="amount">AMOUNT</string>
     <string name="_0">0</string>
-    <string name="sell_items">Sell Items</string>
+    <string name="sell_items">Sale Order Form</string>
     <string name="sign_out">Sign Out</string>
     <string name="about">About</string>
 
     <string-array name="products">
         <item>Artisan 32.5 EC (100ml x 24)</item>
-        <item>Artisan 32.5 EC (25ml  x 48)</item>
+        <item>Artisan 32.5 EC (25ml x 48)</item>
         <item>Artisan 32.5 EC (400 ml x 6)</item>
-        <item>Artisan 32.5 EC (50 ml x  24)</item>
+        <item>Artisan 32.5 EC (50 ml x 24)</item>
         <item>Benace-G 100mg x 50</item>
         <item>Benace-G 50mg x 50</item>
         <item>Brinijal Lure 2 x 1 New</item>
@@ -44,7 +44,7 @@
         <item>Fuji Diamond (5 x 1)</item>
         <item>Fruits Lure (2 x 1) New</item>
         <item>Fruits Lure (5 x 1)</item>
-        <item>Fruits Lure (5 x 1)  New</item>
+        <item>Fruits Lure (5 x 1) New</item>
         <item>Fuji Gold (2 x 1)</item>
         <item>Fuji Gold (5 x 1)</item>
         <item>Fuji Q Lure (2 x 1) New</item>
@@ -140,8 +140,8 @@
         <item>Zeo Active (Granular) 1kg x 10</item>
         <item>Zeo Active (Granular) 5kg x 4</item>
         <item>Ready Zinc 100gm X 25</item>
-        <item>Gemulus 1kg Sulphur 80wp (2kg x 10)</item>
-        <item>Fuji Brand Nursery Feed</item>
+        <item>Gemulus 1kg Sulpher 80wp (2kg x 10)</item>
+        <item>Fuji Brand Nursary Feed</item>
         <item>GME Gold (1 Ltr x 6)</item>
         <item>G-Para 20 SL (50 ml x 24)</item>
         <item>Ready Zinc (100 gm x 25)</item>
@@ -155,11 +155,8 @@
         <item>Herculex 40 WG (10mg x 10 x 8)</item>
         <item>fuji Fruits Lure (5 x 1)</item>
         <item>fuji Fruits Lure (2 x 1)</item>
-        <item>Lamda Cyhalothrin</item>
-        <item>Metaclor+Bensulfuran(Destroy)</item>
         <item>Gentec 5 WDG (10 gm x 10 x 8)</item>
         <item>G Non 10 G 1kg x 10</item>
-        <item>G-Para 20 SL (100 ml x24) New</item>
         <item>Cosamil 80 (1kg x 10)</item>
         <item>Grow Max (5gm x 20)</item>
     </string-array>
