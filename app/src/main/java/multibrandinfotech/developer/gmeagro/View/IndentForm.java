@@ -38,6 +38,7 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
     private static final String[] distributorArray = new String[]{"A K Khan & Company", "Aarong", "Adamjee Jute Mills", "Advanced Chemical Industries", "Agamee Prakashani", "Akij", "A J Group", "Bangladesh Machine Tools Factory", "Bangladesh Petroleum Corporation", "Bashundhara Group", "Beximco Pharma", "Square Pharma"};
     private static final String[] partyCodeArray = new String[]{"Conglomerates", "Consumer goods", "Consumer services", "Basic materials", "Industrials", "Oil & gas", "Health care", "Medicine", "Garments"};
     private static DatabaseHelper databaseHelper;
+    public String flagCash = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,10 +111,15 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
                     if (paymentType.equals(null) || deliveryDate.equals("") || distributor.equals("") || partycode.equals("")) {
                         Toast.makeText(getApplicationContext(), "Please fill-up all details", Toast.LENGTH_LONG).show();
                     } else {
-
                         databaseHelper.insertIndentData(paymentType, orderDate, deliveryDate, distributor, partycode);
+
+                        if(!paymentType.equals("Cash")){
+                            flagCash = "0";
+                        }
+
                         Intent i = new Intent(IndentForm.this, AddItem.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        i.putExtra("flag", flagCash);
                         startActivity(i);
                     }
                 }

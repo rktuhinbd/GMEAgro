@@ -18,15 +18,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import multibrandinfotech.developer.gmeagro.Model.DatabaseHelper;
 import multibrandinfotech.developer.gmeagro.Model.ItemList;
 import multibrandinfotech.developer.gmeagro.R;
 import multibrandinfotech.developer.gmeagro.ViewModel.ItemAdapter;
 import multibrandinfotech.developer.gmeagro.ViewModel.PlaceOrderDialog;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class AddItem extends AppCompatActivity {
 
@@ -36,7 +34,7 @@ public class AddItem extends AppCompatActivity {
     private Button buttonAddItem, buttonPlaceOrder;
 
     private String itemName, itemCode, quantityText, disc;
-    private int quantity = 0, price = 1000, percent = 5, grandTotal, Position;
+    private int quantity = 0, price = 1000, percent = 0, grandTotal, Position;
     private double discount = 1, amount, totalAmount = 0, subtractTotal;
 
     private RecyclerView recyclerView;
@@ -46,6 +44,8 @@ public class AddItem extends AppCompatActivity {
     private static DatabaseHelper databaseHelper;
 
     ArrayList<ItemList> items = new ArrayList<>();
+    private String[] UnitPrice;
+    private String[] Products;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +63,9 @@ public class AddItem extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
         final SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
 
-        List<String> Products = Arrays.asList(getResources().getStringArray(R.array.products));
+        final String Flag = getIntent().getStringExtra("flag");
 
+        Products = getResources().getStringArray(R.array.products);
         final ArrayAdapter<String> itemNameAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Products);
         final ArrayAdapter<String> itemCodeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Products);
 
@@ -80,6 +81,13 @@ public class AddItem extends AppCompatActivity {
                 quantityText = editTextQuantity.getText().toString();
                 itemName = editTextItemName.getText().toString();
                 itemCode = editTextItemCode.getText().toString();
+
+                if (Flag.equals("1")) {
+                    UnitPrice = getResources().getStringArray(R.array.unitPriceCash);
+                } else {
+                    UnitPrice = getResources().getStringArray(R.array.unitPriceDue);
+                }
+
                 addItem();
             }
         });
@@ -100,25 +108,7 @@ public class AddItem extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if (s.toString().equals("Tea")) {
-                editTextItemCode.setText("Ispahani Tea");
-            } else if (s.toString().equals("Coffee")) {
-                editTextItemCode.setText("Nescafe");
-            } else if (s.toString().equals("Milk")) {
-                editTextItemCode.setText("Dano");
-            } else if (s.toString().equals("Sugar")) {
-                editTextItemCode.setText("Zero Cal");
-            } else if (s.toString().equals("Biscuit")) {
-                editTextItemCode.setText("First Choice");
-            } else if (s.toString().equals("Biriyani")) {
-                editTextItemCode.setText("Sultan's Dine");
-            } else if (s.toString().equals("Shingara")) {
-                editTextItemCode.setText("Panshi");
-            } else if (s.toString().equals("Shamucha")) {
-                editTextItemCode.setText("Panshi");
-            } else if (s.toString().equals("Muglai")) {
-                editTextItemCode.setText("Beauty");
-            }
+            //editTextItemCode.setText(s.toString());
         }
 
         @Override
@@ -157,6 +147,13 @@ public class AddItem extends AppCompatActivity {
         if (itemName.equals("") || itemCode.equals("") || quantityText.equals("")) {
             Toast.makeText(getApplicationContext(), "Do not leave any input blank", Toast.LENGTH_SHORT).show();
         } else {
+
+            for (int i = 0; i < Products.length; i++) {
+                if(itemName.equals(Products[i])){
+                    price = Integer.parseInt(UnitPrice[i]);
+                }
+            }
+
             quantity = Integer.parseInt(quantityText);
             discount = (price * percent) / 100;
             amount = (price - discount) * quantity;
@@ -164,7 +161,7 @@ public class AddItem extends AppCompatActivity {
             disc = percent + "%";
 
             items.add(new ItemList(itemName, quantity, price, disc, amount));
-            databaseHelper.insertAddItemData(itemName, itemCode, quantity ,price, disc, amount);
+            databaseHelper.insertAddItemData(itemName, itemCode, quantity, price, disc, amount);
 
             populateRecyclerView();
 
@@ -199,8 +196,9 @@ public class AddItem extends AppCompatActivity {
     public void openRecyclerViewItemDeleteDialog() {
 
         AlertDialog.Builder adb = new AlertDialog.Builder(this);
-        adb.setTitle("Do you want to remove this item?");
-        //adb.setIcon(android.R.drawable.ic_delete);
+        adb.setTitle("Remove Item");
+        adb.setMessage("Do you want to remove this item?");
+        adb.setIcon(android.R.drawable.ic_delete);
 
         adb.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {

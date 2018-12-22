@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp"
+    android:background="@drawable/background_home"
     android:orientation="vertical"
+    android:paddingLeft="40dp"
+    android:paddingRight="40dp"
     android:weightSum="8"
     tools:context=".View.Login">
 
@@ -87,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:background="@drawable/green_button"
+            android:background="@drawable/orange_button"
             android:text="@string/login"
             android:textColor="#ffffff"
             android:textSize="25sp" />

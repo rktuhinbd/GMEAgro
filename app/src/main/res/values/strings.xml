@@ -32,132 +32,392 @@
     <string name="about">About</string>
 
     <string-array name="products">
-        <item>Artisan 32.5 EC (100ml x 24)</item>
-        <item>Artisan 32.5 EC (25ml x 48)</item>
-        <item>Artisan 32.5 EC (400 ml x 6)</item>
-        <item>Artisan 32.5 EC (50 ml x 24)</item>
-        <item>Benace-G 100mg x 50</item>
-        <item>Benace-G 50mg x 50</item>
-        <item>Brinijal Lure 2 x 1 New</item>
-        <item>Brinijal Lure 5 x 1 New</item>
-        <item>Fuji Diamond (2 x 1)</item>
-        <item>Fuji Diamond (5 x 1)</item>
-        <item>Fruits Lure (2 x 1) New</item>
-        <item>Fruits Lure (5 x 1)</item>
-        <item>Fruits Lure (5 x 1) New</item>
-        <item>Fuji Gold (2 x 1)</item>
-        <item>Fuji Gold (5 x 1)</item>
-        <item>Fuji Q Lure (2 x 1) New</item>
-        <item>Fuji Q Lure (5 x 1)</item>
-        <item>Pheromone Trap</item>
-        <item>Sumi Pr. Fruits Lure</item>
-        <item>Fuji Silva (2 x 1)</item>
-        <item>Fuji Silva (5 x 1)</item>
-        <item>Blate 10 EC (100 ml x 24)</item>
-        <item>Blate 10 EC (1 ltr x 6)</item>
-        <item>Blate 10 EC (25 ml x 24)</item>
-        <item>Blate 10 EC (400 ml x 6)</item>
-        <item>Blate 10 EC (50 ml x 24)</item>
-        <item>First 15 (Ethephone) 100ml x 24</item>
-        <item>First 15 (Ethephone) 450ml x 6</item>
-        <item>First 15 (Ethephone) 50ml x 48</item>
-        <item>Fusicon 15 EC (100ml x 24)</item>
-        <item>Fusicon 15 EC (50ml x 24)</item>
-        <item>G-Clean 5 EC (50ml x 24)</item>
-        <item>G-Clean 5 EC (100ml x 24)</item>
-        <item>G-Conazole 10 EC (100 ml x 24)</item>
-        <item>G-Conazole 10 EC (400 ml x 6)</item>
-        <item>G-Conazole 10 EC (50 ml x 24)</item>
-        <item>G-Derma (1kg x 10)</item>
-        <item>G-Derma 500gm x 20</item>
-        <item>G-Derma 100ml x 24</item>
-        <item>G-Derma 400ml x 6</item>
-        <item>Gectin (100 ml x 24)</item>
-        <item>Gectin (400 ml x 6)</item>
-        <item>Gectin (50 ml x 24)</item>
-        <item>G-five 55EC (100 ml x 24)</item>
-        <item>G-five 55EC (400 ml x 6)</item>
-        <item>G-five 55EC (50 ml x 24)</item>
-        <item>G-Mag 1kg x 10 (Mangesium Sulphate)</item>
-        <item>G-Mag (1 kg x 20) (Mangesium Sulphate)</item>
-        <item>G-Maize (100 ml x 24)</item>
-        <item>G-Maize (400 ml x 6)</item>
-        <item>GME gold (100 ml x 24)</item>
-        <item>GME Gold (450 ml x 6)-(4 CPA) New</item>
-        <item>GME Gold (50 ml x 24)</item>
-        <item>GME Gold 50ml x 48</item>
-        <item>Gmiround (100 ml x 24)</item>
-        <item>Gmiround (1 Liter x 6)</item>
-        <item>Gmiround (20 Ltr x 1)</item>
-        <item>Gmiround 41SL-(400ml x 6) (Glyphoseate)</item>
-        <item>Gmiround 41SL-(500 ml x 6) (Glyphoseate)</item>
-        <item>Gmiround 41SL-5Ltr (Glyphoseate 41 SL)</item>
-        <item>G-Para 20 SL (100ml x24)</item>
-        <item>G-Para 20 SL (1Litter x 6)</item>
-        <item>G-Para 20 SL (1Litter x 6) New</item>
-        <item>G-Para 20 SL (20 Litter x 1)</item>
-        <item>G-Para 20 SL (500 ml x 6)</item>
-        <item>G-Para 20 SL (5 ltr x 1)</item>
-        <item>Herculex 40 WG (30mg x 10 x 40)</item>
-        <item>Jaguar (100 ml x 24)</item>
-        <item>Jaguar (1 ltr x 6)</item>
-        <item>Jaguar (400 ml x 6)</item>
-        <item>Jaguar (50 ml x 24)</item>
-        <item>Mahifos 20 EC (100 ml x 24)</item>
-        <item>Mahifos 20 EC (400 ml x 6)</item>
-        <item>Mahifos 20 EC (50 ml x 24)</item>
-        <item>Mahifos 20 EC (50 ml x 48)</item>
-        <item>Mansis 100gm x 40 (Old)</item>
-        <item>Mansis 1kg x 10 (80 WP)</item>
-        <item>Mansis 500gm x 20 (80 WP)</item>
-        <item>Active (Sulphar 90) 1kg x 10</item>
-        <item>B-Plus 500gm x 20</item>
-        <item>Destroy 20 GR (Bensulfuran) 25gm x 100</item>
-        <item>Gemulus 1kg Sulpher 80wp (1kg x 10)</item>
-        <item>GME Gyp (Gypsum 10kg x 1)</item>
-        <item>GME Gyp (Gypsum 5kg x 4)</item>
-        <item>GME Zinc Hepte (1kg x 10)</item>
-        <item>GME Zinc Mono (1 kg x 20)</item>
-        <item>G-Non 10 G (1 kg x 10)</item>
-        <item>Grow-Max (GA3) 20pcs x 1</item>
-        <item>Kingfisher 1kg x 10</item>
-        <item>King Fisher (Rotanone) 1kg x 10 (Old)</item>
-        <item>Ready Boron 100gm x 40</item>
-        <item>Ready Boron 500gm x 20</item>
-        <item>Ready Potas 500gm x 20</item>
-        <item>Ready Zinc 20gm x 50</item>
-        <item>Ready Zinc 50gm x 40</item>
-        <item>Rootstar 5G 1kg x 10</item>
-        <item>Shikor Plus 1kg x 10</item>
-        <item>Shikor Plus 1kg x 20</item>
-        <item>Zeo Active Powder 5kg x 4</item>
-        <item>Aqua Growth + 100gm x 24</item>
-        <item>Aqua Growth + 500gm x 10</item>
-        <item>Aqua Guard 100ml x 24</item>
-        <item>Aqua Guard 500ml x 6</item>
-        <item>Gas Qure 100ml x 24</item>
-        <item>Geo - Oxy 1kg x 6</item>
-        <item>Zeo Active (Granular) 1kg x 10</item>
-        <item>Zeo Active (Granular) 5kg x 4</item>
-        <item>Ready Zinc 100gm X 25</item>
-        <item>Gemulus 1kg Sulpher 80wp (2kg x 10)</item>
-        <item>Fuji Brand Nursary Feed</item>
-        <item>GME Gold (1 Ltr x 6)</item>
-        <item>G-Para 20 SL (50 ml x 24)</item>
-        <item>Ready Zinc (100 gm x 25)</item>
-        <item>Gemulus (2 kg x 5)</item>
-        <item>Gemulus (100 gm x 40)</item>
-        <item>Zeo Active Granular (5 kg x 4)</item>
-        <item>Zeo Active Granular (10 kg x 1)</item>
-        <item>Fuji Brinjal Lure 5 x 1</item>
-        <item>Fuji Brinjal Lure 2 x 1</item>
-        <item>Gentec 5 WDG (10 gm x 10 x 4)</item>
-        <item>Herculex 40 WG (10mg x 10 x 8)</item>
-        <item>fuji Fruits Lure (5 x 1)</item>
-        <item>fuji Fruits Lure (2 x 1)</item>
-        <item>Gentec 5 WDG (10 gm x 10 x 8)</item>
-        <item>G Non 10 G 1kg x 10</item>
-        <item>Cosamil 80 (1kg x 10)</item>
-        <item>Grow Max (5gm x 20)</item>
+        <item>Artisan 32.5 EC (100ml x 24) </item>
+        <item>Artisan 32.5 EC (25ml  x 48) </item>
+        <item>Artisan 32.5 EC (400 ml x 6) </item>
+        <item>Artisan 32.5 EC (50 ml x  24) </item>
+        <item>Benace-G 100mg x 50 </item>
+        <item>Benace-G 50mg x 50 </item>
+        <item>Blate 10 EC (1 ltr x 6) </item>
+        <item>Blate 10 EC (100 ml x 24) </item>
+        <item>Blate 10 EC (25 ml x 24) </item>
+        <item>Blate 10 EC (400 ml x 6) </item>
+        <item>Blate 10 EC (50 ml x 24) </item>
+        <item>First 15 (Ethephone) 100ml x 24 </item>
+        <item>First 15 (Ethephone) 450ml x 6 </item>
+        <item>First 15 (Ethephone) 50ml x 48 </item>
+        <item>Fusicon 15 EC (100ml x 24) </item>
+        <item>Fusicon 15 EC (50ml x 24) </item>
+        <item>G-Clean 5 EC (100ml x 24) </item>
+        <item>G-Clean 5 EC (50ml x 24) </item>
+        <item>G-Conazole 10 EC (100 ml x 24) </item>
+        <item>G-Conazole 10 EC (400 ml x 6) </item>
+        <item>G-Conazole 10 EC (50 ml x 24) </item>
+        <item>G-Derma (1kg x 10) </item>
+        <item>G-Derma 500gm x 20 </item>
+        <item>Grow Max (5gm x 20) </item>
+        <item>G-Derma 100ml x 24 </item>
+        <item>G-Derma 400ml x 6 </item>
+        <item>Gectin (100 ml x 24) </item>
+        <item>Gectin (400 ml x 6) </item>
+        <item>Gectin (50 ml x 24) </item>
+        <item>G-five 55EC (100 ml x 24) </item>
+        <item>G-five 55EC (400 ml x 6) </item>
+        <item>G-five 55EC (50 ml x 24) </item>
+        <item>G-Mag (1 kg x 20) (Mangesium Sulphate) </item>
+        <item>G-Mag 1kg x 10 (Mangesium Sulphate) </item>
+        <item>G-Maize (100 ml x 24) </item>
+        <item>G-Maize (400 ml x 6) </item>
+        <item>GME Gold (1 Ltr x 6) </item>
+        <item>GME gold (100 ml x 24) </item>
+        <item>GME Gold (450 ml x 6)-(4 CPA) New </item>
+        <item>GME Gold (50 ml x 24) </item>
+        <item>GME Gold 50ml x 48 </item>
+        <item>Gmiround (1 Liter x 6) </item>
+        <item>Gmiround (100 ml x 24) </item>
+        <item>Gmiround (20 Ltr x 1) </item>
+        <item>Gmiround 41SL-(400ml x 6) (Glyphoseate) </item>
+        <item>Gmiround 41SL-(500 ml x 6) (Glyphoseate) </item>
+        <item>Gmiround 41SL-5Ltr (Glyphoseate 41 SL) </item>
+        <item>G-Para 20 SL (100ml x24) </item>
+        <item>G-Para 20 SL (1Litter x 6) </item>
+        <item>G-Para 20 SL (1Litter x 6) New </item>
+        <item>G-Para 20 SL (20 Litter x 1)  </item>
+        <item>G-Para 20 SL (5 ltr x 1) </item>
+        <item>G-Para 20 SL (50 ml x 24) </item>
+        <item>G-Para 20 SL (500 ml x 6) </item>
+        <item>Herculex 40 WG (10mg x 10 x 8) </item>
+        <item>Herculex 40 WG (30mg x 10 x 40) </item>
+        <item>Jaguar (1 ltr x 6) </item>
+        <item>Jaguar (100 ml x 24) </item>
+        <item>Jaguar (400 ml x 6) </item>
+        <item>Jaguar (50 ml x 24) </item>
+        <item>Mahifos 20 EC (100 ml x 24) </item>
+        <item>Mahifos 20 EC (400 ml x 6) </item>
+        <item>Mahifos 20 EC (50 ml x 24) </item>
+        <item>Mahifos 20 EC (50 ml x 48) </item>
+        <item>Active (Sulphar 90) 1kg x 10 </item>
+        <item>B-Plus 500gm x 20 </item>
+        <item>Cosamil 80 (1kg x 10) </item>
+        <item>Destroy 20 GR (Bensulfuran) 25gm x 100 </item>
+        <item>G Non 10 G 1kg x 10 </item>
+        <item>G-Non 10 G (1 kg x 10) </item>
+        <item>Gemulus (100 gm x 40) </item>
+        <item>Gemulus (2 kg x 5) </item>
+        <item>Gemulus 1kg Sulpher 80wp (1kg x 10) </item>
+        <item>Gemulus 1kg Sulpher 80wp (2kg x 10) </item>
+        <item>Gentec 5 WDG (10 gm x 10 x 4) </item>
+        <item>Gentec 5 WDG (10 gm x 10 x 8) </item>
+        <item>GME Gyp (Gypsum 10kg x 1) </item>
+        <item>GME Gyp (Gypsum 5kg x 4) </item>
+        <item>GME Zinc Hepte (1kg x 10) </item>
+        <item>GME Zinc Mono (1 kg x 20) </item>
+        <item>Grow-Max (GA3) 20pcs x 1 </item>
+        <item>King Fisher (Rotanone) 1kg x 10 (Old) </item>
+        <item>Kingfisher 1kg x 10 </item>
+        <item>Mansis 100gm x 40 (Old) </item>
+        <item>Mansis 1kg x 10 (80 WP) </item>
+        <item>Mansis 500gm x 20 (80 WP) </item>
+        <item>Ready Boron 100gm x 40 </item>
+        <item>Ready Boron 500gm x 20 </item>
+        <item>Ready Potas 500gm x 20 </item>
+        <item>Ready Zinc (100 gm x 25) </item>
+        <item>Ready Zinc 100gm X 25 </item>
+        <item>Ready Zinc 20gm x 50 </item>
+        <item>Ready Zinc 50gm x 40 </item>
+        <item>Rootstar 5G 1kg x 10 </item>
+        <item>Shikor Plus 1kg x 10 </item>
+        <item>Shikor Plus 1kg x 20 </item>
+        <item>Zeo Active Granular (10 kg x 1) </item>
+        <item>Zeo Active Granular (5 kg x 4) </item>
+        <item>Zeo Active Powder 5kg x 4 </item>
+        <item>Aqua Growth + 100gm x 24 </item>
+        <item>Aqua Growth + 500gm x 10 </item>
+        <item>Gas Qure 100ml x 24 </item>
+        <item>Geo - Oxy 1kg x 6 </item>
+        <item>Zeo Active (Granular) 1kg x 10 </item>
+        <item>Zeo Active (Granular) 5kg x 4 </item>
+        <item>Aqua Guard 100ml x 24 </item>
+        <item>Aqua Guard 500ml x 6 </item>
+        <item>Fuji Brand Nursary Feed </item>
+        <item>Brinijal Lure 2 x 1 New </item>
+        <item>Brinijal Lure 5 x 1 New </item>
+        <item>Fruits Lure (2 x 1) New </item>
+        <item>Fruits Lure (5 x 1)  </item>
+        <item>Fruits Lure (5 x 1)  New </item>
+        <item>Fuji Brinjal Lure 2 x 1 </item>
+        <item>Fuji Brinjal Lure 5 x 1 </item>
+        <item>Fuji Diamond (2 x 1) </item>
+        <item>Fuji Diamond (5 x 1) </item>
+        <item>fuji Fruits Lure (2 x 1) </item>
+        <item>fuji Fruits Lure (5 x 1) </item>
+        <item>Fuji Gold (2 x 1) </item>
+        <item>Fuji Gold (5 x 1) </item>
+        <item>Fuji Q Lure (2 x 1) New </item>
+        <item>Fuji Q Lure (5 x 1)  </item>
+        <item>Fuji Silva (2 x 1) </item>
+        <item>Fuji Silva (5 x 1) </item>
+        <item>Pheromone Trap </item>
+        <item>Sumi Pr. Fruits Lure </item>
+    </string-array>
+
+    <string-array name="unitPriceCash">
+        <item>5520</item>
+        <item>2976</item>
+        <item>5430</item>
+        <item>2880</item>
+        <item>2650</item>
+        <item>1450</item>
+        <item>2880</item>
+        <item>1344</item>
+        <item>816</item>
+        <item>1260</item>
+        <item>768</item>
+        <item>2880</item>
+        <item>1560</item>
+        <item>1248</item>
+        <item>720</item>
+        <item>1752</item>
+        <item>1620</item>
+        <item>984</item>
+        <item>1450</item>
+        <item>1520</item>
+        <item>1800</item>
+        <item>1824</item>
+        <item>1770</item>
+        <item>1632</item>
+        <item>1530</item>
+        <item>912</item>
+        <item>2160</item>
+        <item>2040</item>
+        <item>1200</item>
+        <item>600</item>
+        <item>1232</item>
+        <item>1158</item>
+        <item>1140</item>
+        <item>792</item>
+        <item>660</item>
+        <item>528</item>
+        <item>528</item>
+        <item>1740</item>
+        <item>960</item>
+        <item>5000</item>
+        <item>780</item>
+        <item>930</item>
+        <item>1330</item>
+        <item>936</item>
+        <item>2040</item>
+        <item>6000</item>
+        <item>1600</item>
+        <item>528</item>
+        <item>1050</item>
+        <item>6000</item>
+        <item>8400</item>
+        <item>2520</item>
+        <item>1248</item>
+        <item>1140</item>
+        <item>720</item>
+        <item>1488</item>
+        <item>1350</item>
+        <item>864</item>
+        <item>864</item>
+        <item>1188</item>
+        <item>1200</item>
+        <item>3000</item>
+        <item>2550</item>
+        <item>560</item>
+        <item>950</item>
+        <item>1000</item>
+        <item>950</item>
+        <item>1400</item>
+        <item>1400</item>
+        <item>180</item>
+        <item>400</item>
+        <item>677</item>
+        <item>1050</item>
+        <item>1800</item>
+        <item>1914</item>
+        <item>4150</item>
+        <item>4350</item>
+        <item>960</item>
+        <item>2240</item>
+        <item>1224</item>
+        <item>850</item>
+        <item>1520</item>
+        <item>1200</item>
+        <item>470</item>
+        <item>900</item>
+        <item>300</item>
+        <item>2976</item>
+        <item>5200</item>
+        <item>5760</item>
+        <item>2280</item>
+        <item>380</item>
+        <item>800</item>
+        <item>3360</item>
+        <item>3000</item>
+        <item>36</item>
+        <item>85</item>
+        <item>100</item>
+        <item>36</item>
+        <item>85</item>
+        <item>150</item>
+        <item>36</item>
+        <item>85</item>
+        <item>100</item>
+        <item>28</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+       <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </string-array>
+
+    <string-array name="unitPriceDue">
+        <item>6480</item>
+        <item>3456</item>
+        <item>6390</item>
+        <item>3360</item>
+        <item>3250</item>
+        <item>1750</item>
+        <item>3840</item>
+        <item>1800</item>
+        <item>1104</item>
+        <item>1680</item>
+        <item>1032</item>
+        <item>3480</item>
+        <item>1920</item>
+        <item>1536</item>
+        <item>864</item>
+        <item>2448</item>
+        <item>2280</item>
+        <item>1392</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>2200</item>
+        <item>2160</item>
+        <item>2100</item>
+        <item>1968</item>
+        <item>1860</item>
+        <item>1104</item>
+        <item>2520</item>
+        <item>2400</item>
+        <item>1440</item>
+        <item>720</item>
+        <item>1560</item>
+        <item>1488</item>
+        <item>1770</item>
+        <item>1248</item>
+        <item>1020</item>
+        <item>480</item>
+        <item>840</item>
+        <item>2100</item>
+        <item>1080</item>
+        <item>6000</item>
+        <item>930</item>
+        <item>1110</item>
+        <item>1600</item>
+        <item>1080</item>
+        <item>2400</item>
+        <item>7000</item>
+        <item>1850</item>
+        <item>624</item>
+        <item>1230</item>
+        <item>6960</item>
+        <item>9800</item>
+        <item>3060</item>
+        <item>1560</item>
+        <item>1500</item>
+        <item>888</item>
+        <item>1968</item>
+        <item>1800</item>
+        <item>1152</item>
+        <item>1152</item>
+        <item>1650</item>
+        <item>1500</item>
+        <item>3500</item>
+        <item>3000</item>
+        <item>700</item>
+        <item>1150</item>
+        <item>1200</item>
+        <item>1150</item>
+        <item>1640</item>
+        <item>1640</item>
+        <item>200</item>
+        <item>470</item>
+        <item>820</item>
+        <item>1200</item>
+        <item>2200</item>
+        <item>2200</item>
+        <item>4750</item>
+        <item>5000</item>
+        <item>1200</item>
+        <item>2800</item>
+        <item>1700</item>
+        <item>1260</item>
+        <item>2240</item>
+        <item>1400</item>
+        <item>650</item>
+        <item>1250</item>
+        <item>380</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>82</item>
+        <item>100</item>
+        <item>115</item>
+        <item>82</item>
+        <item>100</item>
+        <item>170</item>
+        <item>82</item>
+        <item>100</item>
+        <item>150</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
     </string-array>
 </resources>
