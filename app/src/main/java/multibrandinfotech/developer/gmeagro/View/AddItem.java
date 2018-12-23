@@ -44,6 +44,8 @@ public class AddItem extends AppCompatActivity {
     private static DatabaseHelper databaseHelper;
 
     ArrayList<ItemList> items = new ArrayList<>();
+    ArrayAdapter<String> itemNameAdapter, itemCodeAdapter;
+
     private String[] UnitPrice;
     private String[] Products;
 
@@ -65,15 +67,15 @@ public class AddItem extends AppCompatActivity {
 
         final String Flag = getIntent().getStringExtra("flag");
 
-        Products = getResources().getStringArray(R.array.products);
-        final ArrayAdapter<String> itemNameAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Products);
-        final ArrayAdapter<String> itemCodeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Products);
+        Products = getResources().getStringArray(R.array.productName);
+        itemNameAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Products);
+        itemCodeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Products);
 
         editTextItemName.setAdapter(itemNameAdapter);
         editTextItemCode.setAdapter(itemCodeAdapter);
 
         editTextItemName.addTextChangedListener(watcher);
-        editTextItemCode.addTextChangedListener(watcher);
+        //editTextItemCode.addTextChangedListener(watcher);
 
         buttonAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +110,12 @@ public class AddItem extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            //editTextItemCode.setText(s.toString());
+            for (int i = 0; i < Products.length; i++) {
+                if (s.toString().equals(Products[i])) {
+                    //Set Text in itemCode - AutoComplete TextView
+                    editTextItemCode.setText(s);
+                }
+            }
         }
 
         @Override
@@ -149,7 +156,7 @@ public class AddItem extends AppCompatActivity {
         } else {
 
             for (int i = 0; i < Products.length; i++) {
-                if(itemName.equals(Products[i])){
+                if (itemName.equals(Products[i])) {
                     price = Integer.parseInt(UnitPrice[i]);
                 }
             }
@@ -198,7 +205,7 @@ public class AddItem extends AppCompatActivity {
         AlertDialog.Builder adb = new AlertDialog.Builder(this);
         adb.setTitle("Remove Item");
         adb.setMessage("Do you want to remove this item?");
-        adb.setIcon(android.R.drawable.ic_delete);
+        adb.setIcon(R.drawable.ic_remove_item);
 
         adb.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {

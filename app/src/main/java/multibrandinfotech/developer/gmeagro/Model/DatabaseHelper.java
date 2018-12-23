@@ -5,10 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 import android.widget.Toast;
-
-import java.sql.Array;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -68,13 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL(CREATE_LOGIN_TABLE);
             db.execSQL(CREATE_INDENT_TABLE);
             db.execSQL(CREATE_ADD_ITEM_TABLE);
-            db.execSQL("INSERT INTO " + LOGIN_TABLE_NAME + "(" + USER_NAME + ", " + PASSWORD + ") VALUES('superadmin', 'superadmin');");
-//            Toast.makeText(context, "Login Table Created and Login data inserted", Toast.LENGTH_LONG).show();
-//            Toast.makeText(context, "Indent Table Created", Toast.LENGTH_LONG).show();
-//            Toast.makeText(context, "Login Table Created and Login data inserted", Toast.LENGTH_LONG).show();
-//            Log.e("TAG1", "LOGIN Table data inserted");
-//            Log.e("TAG2", "INDENT Table Created");
-//            Log.e("TAG3", "ADD_ITEM Table Created");
+            db.execSQL("INSERT INTO " + LOGIN_TABLE_NAME + "(" + USER_NAME + ", " + PASSWORD + ") VALUES('admin', 'admin');");
         } catch (Exception e) {
             Toast.makeText(context, "Exception: " + e, Toast.LENGTH_LONG).show();
         }
@@ -115,7 +106,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(PARTY_CODE, partyCode);
 
         long input = sqLiteDatabase.insert(ORDER_TABLE_NAME, null, contentValues);
-//        Toast.makeText(context, "Indent data inserted", Toast.LENGTH_LONG).show();
         return input;
     }
 
@@ -131,7 +121,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(TOTAL_PRICE, totalPrice);
 
         long input = sqLiteDatabase.insert(ADD_ITEM_TABLE_NAME, null, contentValues);
-//        Toast.makeText(context, "add item data inserted", Toast.LENGTH_LONG).show();
         return input;
     }
 }

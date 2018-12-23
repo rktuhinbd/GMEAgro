@@ -46,7 +46,9 @@ public class Home extends AppCompatActivity {
                 break;
 
             case R.id.menuAbout:
-                Toast.makeText(getApplicationContext(), "About clicked", Toast.LENGTH_SHORT).show();
+                Intent i2 = new Intent(getApplicationContext(), About.class);
+                i2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i2);
                 break;
 
             default:

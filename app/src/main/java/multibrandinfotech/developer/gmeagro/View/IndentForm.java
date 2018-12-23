@@ -2,7 +2,6 @@ package multibrandinfotech.developer.gmeagro.View;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -47,7 +46,7 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
 
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Sale Order Form");
+        getSupportActionBar().setTitle("Sales Order Form");
 
         radioGroup = (RadioGroup) findViewById(R.id.radio_group);
         editTextDatePicker = (EditText) findViewById(R.id.editText_DatePicker);
@@ -69,11 +68,11 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
             }
         });
 
-        Cursor cursor = databaseHelper.fetchIndentData();
-        final String[] distributorValues = new String[cursor.getCount()];
-        final String[] partyCodeValues = new String[cursor.getCount()];
-
         //Fetch Database Values
+//        Cursor cursor = databaseHelper.fetchIndentData();
+//        final String[] distributorValues = new String[cursor.getCount()];
+//        final String[] partyCodeValues = new String[cursor.getCount()];
+
 //        int i = 0;
 //        if (cursor.getCount() == 0) {
 //            Toast.makeText(getApplication(), "Database is empty", Toast.LENGTH_SHORT).show();
@@ -113,7 +112,7 @@ public class IndentForm extends AppCompatActivity implements DatePickerDialog.On
                     } else {
                         databaseHelper.insertIndentData(paymentType, orderDate, deliveryDate, distributor, partycode);
 
-                        if(!paymentType.equals("Cash")){
+                        if (!paymentType.equals("Cash")) {
                             flagCash = "0";
                         }
 

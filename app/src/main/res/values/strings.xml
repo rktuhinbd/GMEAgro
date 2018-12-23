@@ -4,7 +4,6 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="todo">GME Agro Logo</string>
-    <string name="indent_form">Sell Item Form</string>
     <string name="payment_method">Payment Method</string>
     <string name="cash">Cash</string>
     <string name="expected_delivery_date">Expected Delivery Date</string>
@@ -27,11 +26,11 @@
     <string name="disc">DISC</string>
     <string name="amount">AMOUNT</string>
     <string name="_0">0</string>
-    <string name="sell_items">Sale Order Form</string>
+    <string name="sell_items">Sales Order Form</string>
     <string name="sign_out">Sign Out</string>
     <string name="about">About</string>
 
-    <string-array name="products">
+    <string-array name="productName">
         <item>Artisan 32.5 EC (100ml x 24) </item>
         <item>Artisan 32.5 EC (25ml  x 48) </item>
         <item>Artisan 32.5 EC (400 ml x 6) </item>
@@ -285,7 +284,7 @@
         <item>0</item>
         <item>0</item>
         <item>0</item>
-       <item>0</item>
+        <item>0</item>
         <item>0</item>
         <item>0</item>
         <item>0</item>

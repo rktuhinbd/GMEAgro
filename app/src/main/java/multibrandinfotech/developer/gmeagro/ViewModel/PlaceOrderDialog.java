@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.widget.Toast;
 
+import multibrandinfotech.developer.gmeagro.R;
 import multibrandinfotech.developer.gmeagro.View.IndentForm;
 
 public class PlaceOrderDialog extends AppCompatDialogFragment {
@@ -17,7 +18,7 @@ public class PlaceOrderDialog extends AppCompatDialogFragment {
 
         builder.setTitle("Place Order")
                 .setMessage("Do you want to place order?")
-
+                .setIcon(R.drawable.ic_confirm)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

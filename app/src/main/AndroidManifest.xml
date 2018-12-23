@@ -32,7 +32,8 @@
             android:name=".View.AddItem"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".View.Home"></activity>
+        <activity android:name=".View.Home" />
+        <activity android:name=".View.About"></activity>
     </application>
 
 </manifest>
